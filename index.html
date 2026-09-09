@@ -106,6 +106,42 @@
     margin-bottom: 64px;
   }
 
+  .hero-grid {
+    display: flex;
+    gap: 56px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .hero-left {
+    flex: 1 1 480px;
+    min-width: 0;
+  }
+
+  .hero-right {
+    flex: 1 1 360px;
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .hero-right h3 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .hero-right > p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
   .hero-tag {
     display: inline-flex;
     align-items: center;
@@ -618,32 +654,69 @@
 <div class="container">
 
   <div class="hero">
-    <div class="hero-tag">&#x25CF; Open for Participation</div>
-    <h1>Being neurodivergent.<br>Being a man.<br><span class="grad">Being at university.</span></h1>
-    <p class="hero-sub">This study is about how neurodivergent, male-identifying students experience identity, belonging, and masculinity at Rhodes University. It is not a clinical study. It is about your actual life.</p>
-    <div class="hero-meta">
-      <div class="meta-item">
-        <span class="meta-label">Researcher</span>
-        <span class="meta-value">Luyolo Gqezengele</span>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-tag">&#x25CF; Open for Participation</div>
+        <h1>Being neurodivergent.<br>Being a man.<br><span class="grad">Being at university.</span></h1>
+        <p class="hero-sub">This study is about how neurodivergent, male-identifying students experience identity, belonging, and masculinity at Rhodes University. It is not a clinical study. It is about your actual life.</p>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-label">Researcher</span>
+            <span class="meta-value">Luyolo Gqezengele</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Institution</span>
+            <span class="meta-value">Rhodes University</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Field site</span>
+            <span class="meta-value">Rhodes University, Makhanda</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Study level</span>
+            <span class="meta-value">Masters Research</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Data collection</span>
+            <span class="meta-value">2026</span>
+          </div>
+        </div>
+        <p style="margin-top: 18px; font-size: 12.5px; color: var(--dim); max-width: 640px; line-height: 1.5;">Official ethics-registered title: <em>Negotiating identity and belonging: An ethnographic study of neurodivergent male students' experiences at a higher education institution in the Eastern Cape.</em></p>
       </div>
-      <div class="meta-item">
-        <span class="meta-label">Institution</span>
-        <span class="meta-value">Rhodes University</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Field site</span>
-        <span class="meta-value">Rhodes University, Makhanda</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Study level</span>
-        <span class="meta-value">Masters Research</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Data collection</span>
-        <span class="meta-value">2026</span>
+
+      <div class="hero-right" id="contact">
+        <h3>Ready to find out more?</h3>
+        <p>Fill in the form to introduce yourself. There is no commitment involved, and no wrong way to answer. The researcher will reach out to you directly.</p>
+        <form class="contact-form" action="https://formsubmit.co/neurodivergentmasculinities.ght@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New inquiry: Masculinity and Belonging study">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="form-row">
+            <label for="name">What should I call you?</label>
+            <input type="text" id="name" name="Name" placeholder="First name, nickname, or however you'd like" required>
+          </div>
+          <div class="form-row">
+            <label for="contact-field">How should I reach you?</label>
+            <input type="text" id="contact-field" name="Preferred contact (email or WhatsApp)" placeholder="Email address or WhatsApp number" required>
+            <p class="form-hint">Whichever you check more often is fine.</p>
+          </div>
+          <div class="form-row">
+            <label for="language">Preferred language</label>
+            <select id="language" name="Preferred language">
+              <option value="English">English</option>
+              <option value="isiXhosa">isiXhosa</option>
+              <option value="Other">Other, I'll mention it below</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="message">Anything you'd like me to know? (optional)</label>
+            <textarea id="message" name="Message" placeholder="Questions, availability, or nothing at all, it's fine to leave this blank"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send</button>
+        </form>
+        <p class="contact-note">The researcher will respond within 48 hours. Communication can be in English, isiXhosa, or another language, just let us know what works for you.</p>
       </div>
     </div>
-    <p style="margin-top: 18px; font-size: 12.5px; color: var(--dim); max-width: 640px; line-height: 1.5;">Official ethics-registered title: <em>Negotiating identity and belonging: An ethnographic study of neurodivergent male students' experiences at a higher education institution in the Eastern Cape.</em></p>
   </div>
 
   <section id="about">
@@ -820,47 +893,6 @@
         <span>All data is stored in compliance with the Protection of Personal Information Act No. 4 of 2013 and retained for five years after the study concludes.</span>
       </li>
     </ul>
-  </section>
-
-  <section id="contact">
-    <div class="section-tag">
-      <div class="tag-dot" style="background:var(--teal)"></div>
-      <h2>Get in touch</h2>
-      <div class="tag-line"></div>
-    </div>
-
-    <div class="contact-block">
-      <h3>Ready to find out more?</h3>
-      <p>Fill in the form below to introduce yourself. There is no commitment involved, and no wrong way to answer. The researcher will reach out to you directly.</p>
-      <form class="contact-form" action="https://formsubmit.co/neurodivergentmasculinities.ght@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New inquiry: Masculinity and Belonging study">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <div class="form-row">
-          <label for="name">What should I call you?</label>
-          <input type="text" id="name" name="Name" placeholder="First name, nickname, or however you'd like" required>
-        </div>
-        <div class="form-row">
-          <label for="contact">How should I reach you?</label>
-          <input type="text" id="contact" name="Preferred contact (email or WhatsApp)" placeholder="Email address or WhatsApp number" required>
-          <p class="form-hint">Whichever you check more often is fine.</p>
-        </div>
-        <div class="form-row">
-          <label for="language">Preferred language</label>
-          <select id="language" name="Preferred language">
-            <option value="English">English</option>
-            <option value="isiXhosa">isiXhosa</option>
-            <option value="Other">Other, I'll mention it below</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="message">Anything you'd like me to know? (optional)</label>
-          <textarea id="message" name="Message" placeholder="Questions, availability, or nothing at all, it's fine to leave this blank"></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send</button>
-      </form>
-      <p class="contact-note">The researcher will respond within 48 hours. Communication can be in English, isiXhosa, or another language, just let us know what works for you.</p>
-    </div>
   </section>
 
 </div>
