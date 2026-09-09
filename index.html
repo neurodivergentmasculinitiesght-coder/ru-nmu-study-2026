@@ -142,6 +142,12 @@
     margin-bottom: 20px;
   }
 
+  #form-success p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
   .hero-tag {
     display: inline-flex;
     align-items: center;
@@ -685,36 +691,43 @@
       </div>
 
       <div class="hero-right" id="contact">
-        <h3>Ready to find out more?</h3>
-        <p>Fill in the form to introduce yourself. There is no commitment involved, and no wrong way to answer. The researcher will reach out to you directly.</p>
-        <form class="contact-form" action="https://formsubmit.co/neurodivergentmasculinities.ght@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="New inquiry: Masculinity and Belonging study">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <div class="form-row">
-            <label for="name">What should I call you?</label>
-            <input type="text" id="name" name="Name" placeholder="First name, nickname, or however you'd like" required>
-          </div>
-          <div class="form-row">
-            <label for="contact-field">How should I reach you?</label>
-            <input type="text" id="contact-field" name="Preferred contact (email or WhatsApp)" placeholder="Email address or WhatsApp number" required>
-            <p class="form-hint">Whichever you check more often is fine.</p>
-          </div>
-          <div class="form-row">
-            <label for="language">Preferred language</label>
-            <select id="language" name="Preferred language">
-              <option value="English">English</option>
-              <option value="isiXhosa">isiXhosa</option>
-              <option value="Other">Other, I'll mention it below</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="message">Anything you'd like me to know? (optional)</label>
-            <textarea id="message" name="Message" placeholder="Questions, availability, or nothing at all, it's fine to leave this blank"></textarea>
-          </div>
-          <button type="submit" class="form-submit">Send</button>
-        </form>
-        <p class="contact-note">The researcher will respond within 48 hours. Communication can be in English, isiXhosa, or another language, just let us know what works for you.</p>
+        <div id="form-wrap">
+          <h3>Ready to find out more?</h3>
+          <p>Fill in the form to introduce yourself. There is no commitment involved, and no wrong way to answer. The researcher will reach out to you directly.</p>
+          <form class="contact-form" action="https://formsubmit.co/neurodivergentmasculinities.ght@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New inquiry: Masculinity and Belonging study">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://neurodivergentmasculinitiesght-coder.github.io/ru-nmu-study-2026/?sent=true">
+            <div class="form-row">
+              <label for="name">What should I call you?</label>
+              <input type="text" id="name" name="Name" placeholder="First name, nickname, or however you'd like" required>
+            </div>
+            <div class="form-row">
+              <label for="contact-field">How should I reach you?</label>
+              <input type="text" id="contact-field" name="Preferred contact (email or WhatsApp)" placeholder="Email address or WhatsApp number" required>
+              <p class="form-hint">Whichever you check more often is fine.</p>
+            </div>
+            <div class="form-row">
+              <label for="language">Preferred language</label>
+              <select id="language" name="Preferred language">
+                <option value="English">English</option>
+                <option value="isiXhosa">isiXhosa</option>
+                <option value="Other">Other, I'll mention it below</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="message">Anything you'd like me to know? (optional)</label>
+              <textarea id="message" name="Message" placeholder="Questions, availability, or nothing at all, it's fine to leave this blank"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send</button>
+          </form>
+          <p class="contact-note">The researcher will respond within 48 hours. Communication can be in English, isiXhosa, or another language, just let us know what works for you.</p>
+        </div>
+        <div id="form-success" style="display:none;">
+          <h3>Thank you</h3>
+          <p>Your message has been sent. The researcher will reach out to you directly, usually within 48 hours. There's nothing else you need to do right now.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -920,5 +933,18 @@
   </div>
 </footer>
 
+<script>
+  if (new URLSearchParams(window.location.search).get('sent') === 'true') {
+    var formWrap = document.getElementById('form-wrap');
+    var successWrap = document.getElementById('form-success');
+    if (formWrap && successWrap) {
+      formWrap.style.display = 'none';
+      successWrap.style.display = 'block';
+    }
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }
+</script>
 </body>
 </html>
